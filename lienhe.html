@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ | Nike Store</title>
+    
+    <!-- Sử dụng chung CSS với trang chủ -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lienhe.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;0,900;1,700&display=swap" rel="stylesheet">
+
+<style>
+.student-footer {
+  background: #fff;
+  border-top: 1.5px solid #e0e0e0;
+  padding: 14px 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  letter-spacing: 0.2px;
+}
+.student-footer strong { color: #111; font-weight: 600; }
+</style>
+
+<style id="mob-nav-css">
+.mob-bar { display: none; }
+.mob-dropdown { display: none; }
+@media (max-width: 900px) {
+  .mob-bar {
+    display: flex; align-items: stretch;
+    background: #1a1a1a;
+    position: sticky; top: 62px; z-index: 998; height: 52px;
+  }
+  .mob-bar__left {
+    display: flex; align-items: center; gap: 10px;
+    padding: 0 18px; color: white; font-size: 14px; font-weight: 600;
+    flex: 1; cursor: pointer; user-select: none; transition: background .2s;
+  }
+  .mob-bar__left:hover { background: rgba(255,255,255,.05); }
+  .mob-bar__chevron { margin-left: auto; transition: transform .3s; flex-shrink: 0; }
+  .mob-bar.open .mob-bar__chevron { transform: rotate(180deg); }
+  .mob-bar__toggle {
+    background: #22c55e; border: none; color: white;
+    width: 60px; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; flex-shrink: 0; transition: background .2s;
+  }
+  .mob-bar__toggle:hover { background: #16a34a; }
+  .mob-dropdown {
+    display: block; background: #1e1e1e;
+    position: sticky; top: 114px; z-index: 997;
+    max-height: 0; overflow: hidden;
+    transition: max-height .35s cubic-bezier(.4,0,.2,1);
+  }
+  .mob-dropdown.open { max-height: 420px; }
+  .mob-dropdown ul { list-style: none; padding: 0; margin: 0; }
+  .mob-dropdown li { border-bottom: 1px solid rgba(255,255,255,.07); }
+  .mob-dropdown li:last-child { border-bottom: none; }
+  .mob-dropdown li a {
+    display: block; padding: 15px 24px;
+    color: rgba(255,255,255,.85); font-size: 15px; font-weight: 500;
+    text-align: center; text-decoration: none; letter-spacing: .3px;
+    transition: background .2s, color .2s;
+  }
+  .mob-dropdown li a:hover { background: rgba(34,197,94,.12); color: #22c55e; }
+}
+</style>
+</head>
+<body>
+
+    <!-- ===== HEADER (GIỐNG HỆT CÁC TRANG KHÁC) ===== -->
+    <header class="header" id="header">
+        <div class="header__top">
+            <span>🚀 MIỄN PHÍ VẬN CHUYỂN ĐƠN HÀNG TRÊN 1.500.000₫ &nbsp;|&nbsp; ĐỔI TRẢ 30 NGÀY</span>
+        </div>
+        <nav class="header__nav">
+            <div class="nav__logo">
+                <svg viewBox="0 0 200 70" fill="currentColor" xmlns="http://www.w3.org/2000/svg" height="40">
+                    <path d="M190 10L55 55C40 62 20 60 10 50C0 40 5 20 25 15C38 10 55 14 65 22L190 10Z"/>
+                </svg>
+            </div>
+            <ul class="nav__links">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="index.html#cuahang">Cửa Hàng</a></li>
+                <li><a href="index.html#bosuutap">Bộ Sưu Tập</a></li>
+                <li><a href="index.html#sale">Sale</a></li>
+                <li><a href="index.html#blog">Blog</a></li>
+                <li><a href="#" class="active">Liên Hệ</a></li>
+                <li><a href="gioithieu.html">Giới Thiệu</a></li>
+                <li><a href="thuchanh.html">Thực Hành</a></li>
+            </ul>
+            <div class="nav__actions">
+                <button class="nav__icon" aria-label="Tìm kiếm" id="searchToggle">🔍</button>
+                <button class="nav__icon" aria-label="Yêu thích">♡</button>
+                <button class="nav__icon cart-btn" aria-label="Giỏ hàng" id="cartToggle">
+                    🛒 <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <button class="nav__hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+  <!-- MOBILE DROPDOWN NAV -->
+  <div class="mob-bar" id="mobBar">
+    <div class="mob-bar__left">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <span>Danh mục sản phẩm</span>
+      <svg class="mob-bar__chevron" id="mobChevron" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <button class="mob-bar__toggle" id="mobToggle" aria-label="Menu">
+      <span class="mob-icon mob-icon--open"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></span>
+      <span class="mob-icon mob-icon--close" style="display:none"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+    </button>
+  </div>
+  <div class="mob-dropdown" id="mobDropdown">
+    <ul>
+      <li><a href="index.html">Trang Chủ</a></li>
+      <li><a href="index.html#cuahang">Cửa Hàng</a></li>
+      <li><a href="lienhe.html">Liên Hệ</a></li>
+      <li><a href="index.html#blog">Blog</a></li>
+      <li><a href="gioithieu.html">Về Chúng Tôi</a></li>
+      <li><a href="thuchanh.html">Lab Thực Hành</a></li>
+    </ul>
+  </div>
+
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav__close" id="mobileClose">✕</button>
+        <ul>
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="index.html#cuahang">Cửa Hàng</a></li>
+            <li><a href="index.html#bosuutap">Bộ Sưu Tập</a></li>
+            <li><a href="index.html#sale">Sale</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
+            <li><a href="#" class="active">Liên Hệ</a></li>
+            <li><a href="gioithieu.html">Giới Thiệu</a></li>
+            <li><a href="thuchanh.html">Thực Hành</a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Nội dung trang Liên hệ của bạn -->
+    <section class="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h1>CONTACT US</h1>
+                <p>Để lại thông tin để được tư vấn sản phẩm Nike mới nhất.</p>
+                <img src="images/nike-contact.png" alt="Nike Contact">
+            </div>
+
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="input-box">
+                        <input type="text" id="fullname" required>
+                        <label>Họ và tên</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" id="phone" required>
+                        <label>Số điện thoại</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="email" id="email" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" id="address" required>
+                        <label>Địa chỉ</label>
+                    </div>
+                    <div class="input-box textarea">
+                        <textarea id="message" required></textarea>
+                        <label>Nội dung yêu cầu</label>
+                    </div>
+                    <button type="submit">GỬI THÔNG TIN</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+
+<!-- ===== STUDENT INFO FOOTER ===== -->
+<div class="student-footer">
+  <p>Họ và tên: <strong>Thái Tín Khang</strong> &nbsp;|&nbsp; MSSV: <strong>DH52102716</strong> &nbsp;|&nbsp; Lớp: <strong>D21_TH01</strong> &nbsp;|&nbsp; Nhóm 1 Thứ 7 Ca 3</p>
+</div>
+
+
+<script>
+(function(){
+  var bar=document.getElementById('mobBar'),
+      tog=document.getElementById('mobToggle'),
+      dd =document.getElementById('mobDropdown'),
+      ov =document.getElementById('overlay');
+  if(!tog||!dd) return;
+  var io=tog.querySelector('.mob-icon--open'),
+      ic=tog.querySelector('.mob-icon--close');
+  function open(){dd.classList.add('open');bar.classList.add('open');io.style.display='none';ic.style.display='flex';if(ov)ov.classList.add('active');}
+  function close(){dd.classList.remove('open');bar.classList.remove('open');io.style.display='flex';ic.style.display='none';if(ov)ov.classList.remove('active');}
+  tog.addEventListener('click',function(){dd.classList.contains('open')?close():open();});
+  bar.querySelector('.mob-bar__left').addEventListener('click',function(){dd.classList.contains('open')?close():open();});
+  if(ov)ov.addEventListener('click',close);
+  dd.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+}());
+</script>
+
+</body>
+</html>

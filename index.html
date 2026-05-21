@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nike Store – Just Buy It</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;0,900;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+<style>
+.student-footer {
+  background: #fff;
+  border-top: 1.5px solid #e0e0e0;
+  padding: 14px 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  letter-spacing: 0.2px;
+}
+.student-footer strong { color: #111; font-weight: 600; }
+</style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="header__top">
+      <span>🚀 MIỄN PHÍ VẬN CHUYỂN ĐƠN HÀNG TRÊN 1.500.000₫ &nbsp;|&nbsp; ĐỔI TRẢ 30 NGÀY</span>
+    </div>
+    <nav class="header__nav">
+      <div class="nav__logo">
+        <svg viewBox="0 0 200 70" fill="currentColor" xmlns="http://www.w3.org/2000/svg" height="40">
+          <path d="M190 10L55 55C40 62 20 60 10 50C0 40 5 20 25 15C38 10 55 14 65 22L190 10Z"/>
+        </svg>
+      </div>
+      <ul class="nav__links">
+        <li><a href="#" class="active">Trang Chủ</a></li>
+        <li><a href="#cuahang">Cửa Hàng</a></li>
+        <li><a href="#bosuutap">Bộ Sưu Tập</a></li>
+        <li><a href="#sale">Sale</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="lienhe.html">Liên hệ</a></li>
+        <li><a href="gioithieu.html">Giới Thiệu</a></li>
+        <li><a href="thuchanh.html">Thực Hành</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="nav__icon" aria-label="Tìm kiếm" id="searchToggle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="nav__icon" aria-label="Yêu thích">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <button class="nav__icon cart-btn" aria-label="Giỏ hàng" id="cartToggle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        <button class="nav__icon" aria-label="Tài khoản">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+        <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <!-- Search bar -->
+    <div class="search-bar" id="searchBar">
+      <input type="text" placeholder="Tìm kiếm giày Nike..." id="searchInput" />
+      <button id="searchBtn">Tìm</button>
+    </div>
+  </header>
+
+  <!-- ===== MOBILE MENU BAR + DROPDOWN ===== -->
+  <div class="mob-bar" id="mobBar">
+    <div class="mob-bar__left">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <span>Danh mục sản phẩm</span>
+      <svg class="mob-bar__chevron" id="mobChevron" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <button class="mob-bar__toggle" id="mobToggle" aria-label="Menu">
+      <span class="mob-icon mob-icon--open">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </span>
+      <span class="mob-icon mob-icon--close" style="display:none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </span>
+    </button>
+  </div>
+
+  <div class="mob-dropdown" id="mobDropdown">
+    <ul>
+      <li><a href="index.html">Trang Chủ</a></li>
+      <li><a href="index.html#cuahang">Cửa Hàng</a></li>
+      <li><a href="lienhe.html">Liên Hệ</a></li>
+      <li><a href="index.html#blog">Blog</a></li>
+      <li><a href="gioithieu.html">Về Chúng Tôi</a></li>
+      <li><a href="thuchanh.html">Lab Thực Hành</a></li>
+    </ul>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero__slides" id="heroSlides">
+
+      <div class="hero__slide active" style="--bg:#0a0a0a">
+        <div class="hero__content">
+          <span class="hero__tag">Bộ Sưu Tập Mới 2026</span>
+          <h1 class="hero__title">NIKE<br/><em>AIR MAX</em><br/>DN8</h1>
+          <p class="hero__sub">Đế Air lớn nhất từ trước đến nay. Cảm giác bước đi như bay.</p>
+          <div class="hero__btns">
+            <button class="btn btn--primary">Mua Ngay</button>
+            <button class="btn btn--ghost">Xem Thêm</button>
+          </div>
+          <div class="hero__price-tag">Từ <strong>3.500.000₫</strong></div>
+        </div>
+        <div class="hero__img-wrap">
+          <img src="images/hero/NIKE_AIR_MAX_DN8-removebg-preview.png" alt="NIKE AIR MAX DN8" class="hero-shoe-img">
+        </div>
+        <div class="hero__bg-text">AIR MAX</div>
+      </div>
+
+      <div class="hero__slide" style="--bg:#D3D3FF">
+        <div class="hero__content">
+          <span class="hero__tag" style="background:#111;color:#fff">Classic Series</span>
+          <h1 class="hero__title" style="color:#111">NIKE<br/><em>AIR</em><br/>FORCE 1</h1>
+          <p class="hero__sub" style="color:#555">Huyền thoại bất diệt. Phong cách vượt thời gian từ 1982.</p>
+          <div class="hero__btns">
+            <button class="btn btn--primary" style="background:#111;color:#fff">Mua Ngay</button>
+            <button class="btn btn--ghost" style="border-color:#111;color:#111">Xem Thêm</button>
+          </div>
+          <div class="hero__price-tag" style="color:#111">Từ <strong>2.800.000₫</strong></div>
+        </div>
+        <div class="hero__img-wrap">
+          <img src="images/hero/NIKE_AIR_FORCE_1-removebg-preview.png" alt="NIKE AIR FORCE 1" class="hero-shoe-img">
+        </div>
+        <div class="hero__bg-text" style="color:rgba(0,0,0,0.04)">FORCE</div>
+      </div>
+
+      <div class="hero__slide" style="--bg:#0d1b2a">
+        <div class="hero__content">
+          <span class="hero__tag" style="background:#00d4ff;color:#000">Pro Edition</span>
+          <h1 class="hero__title">NIKE<br/><em>ZOOM</em><br/>ALPHAFLY</h1>
+          <p class="hero__sub">Công nghệ carbon plate. Dành cho những bước chạy phá kỷ lục.</p>
+          <div class="hero__btns">
+            <button class="btn btn--primary" style="background:#00d4ff;color:#000">Mua Ngay</button>
+            <button class="btn btn--ghost">Xem Thêm</button>
+          </div>
+          <div class="hero__price-tag">Từ <strong>5.200.000₫</strong></div>
+        </div>
+        <div class="hero__img-wrap">
+          <img src="images/hero/NIKE_ZOOM_ALPHAFLY-removebg-preview.png" alt="NIKE ZOOM ALPHAFLY" class="hero-shoe-img">
+        </div>
+        <div class="hero__bg-text">ZOOM</div>
+      </div>
+
+    </div>
+
+    <!-- Hero Controls -->
+<<button class="hero__arrow hero__arrow--prev" id="heroPrev" aria-label="Trước">
+      ←
+    </button>
+    <button class="hero__arrow hero__arrow--next" id="heroNext" aria-label="Sau">
+      →
+    </button>
+
+    <div class="hero__dots" id="heroDots">
+      <span class="hero__dot active" data-index="0"></span>
+      <span class="hero__dot" data-index="1"></span>
+      <span class="hero__dot" data-index="2"></span>
+    </div>
+  </section>
+
+              <path d="M220 75 Q270 70 310 90 Q360 112 375 145 Q350 155 300 160 L200 155Z" fill="#7b00ff" opacity="0.7"/>
+              <rect x="55" y="158" width="310" height="20" rx="8" fill="#111"/>
+              <rect x="55" y="170" width="310" height="10" rx="5" fill="#7b00ff"/>
+              <circle cx="120" cy="168" r="8" fill="#00d4ff" opacity="0.6"/>
+              <circle cx="160" cy="168" r="8" fill="#00d4ff" opacity="0.6"/>
+              <circle cx="200" cy="168" r="8" fill="#00d4ff" opacity="0.6"/>
+            </svg>
+          </div>
+        </div>
+        <div class="hero__bg-text">ZOOM</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== PROMO BANNERS ===== -->
+  <section class="promo-strip">
+    <div class="promo-card promo-card--dark">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div><strong>Giao Hàng Hỏa Tốc</strong><span>Nội thành trong 2H</span></div>
+    </div>
+    <div class="promo-card promo-card--red">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      <div><strong>Sale Đến 50%</strong><span>Hàng trăm mẫu giảm giá</span></div>
+    </div>
+    <div class="promo-card promo-card--dark">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div><strong>Chính Hãng 100%</strong><span>Cam kết authentic</span></div>
+    </div>
+    <div class="promo-card promo-card--dark">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.51"/></svg>
+      <div><strong>Đổi Trả 30 Ngày</strong><span>Không cần lý do</span></div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section class="categories section" id="cuahang">
+    <div class="container">
+      <div class="section-header">
+        <h2>Danh Mục Nổi Bật</h2>
+        <a href="#" class="see-all">Xem tất cả →</a>
+      </div>
+      <div class="categories__grid">
+        <div class="cat-card cat-card--large" data-cat="chạy bộ">
+          <div class="cat-card__bg" style="background:linear-gradient(135deg,#ff3e00,#ff8800)"></div>
+          <div class="cat-card__content">
+            <h3>Chạy Bộ</h3>
+            <span>24 Sản Phẩm</span>
+            <a href="#" class="cat-link">Khám phá +</a>
+          </div>
+          <div class="cat-card__icon">🏃</div>
+        </div>
+        <div class="cat-card" data-cat="lifestyle">
+          <div class="cat-card__bg" style="background:linear-gradient(135deg,#1a1a2e,#16213e)"></div>
+          <div class="cat-card__content">
+            <h3>Lifestyle</h3>
+            <span>18 Sản Phẩm</span>
+            <a href="#" class="cat-link">Khám phá +</a>
+          </div>
+          <div class="cat-card__icon">👟</div>
+        </div>
+        <div class="cat-card" data-cat="bóng rổ">
+          <div class="cat-card__bg" style="background:linear-gradient(135deg,#e8ff00,#a0cc00)"></div>
+          <div class="cat-card__content" style="color:#111">
+            <h3>Bóng Rổ</h3>
+            <span>12 Sản Phẩm</span>
+            <a href="#" class="cat-link" style="color:#111;border-color:#111">Khám phá +</a>
+          </div>
+          <div class="cat-card__icon">🏀</div>
+        </div>
+        <div class="cat-card" data-cat="bóng đá">
+          <div class="cat-card__bg" style="background:linear-gradient(135deg,#00d4ff,#0099cc)"></div>
+          <div class="cat-card__content" style="color:#111">
+            <h3>Bóng Đá</h3>
+            <span>16 Sản Phẩm</span>
+            <a href="#" class="cat-link" style="color:#111;border-color:#111">Khám phá +</a>
+          </div>
+          <div class="cat-card__icon">⚽</div>
+        </div>
+        <div class="cat-card" data-cat="tập gym">
+          <div class="cat-card__bg" style="background:linear-gradient(135deg,#7b00ff,#4400cc)"></div>
+          <div class="cat-card__content">
+            <h3>Tập Gym</h3>
+            <span>10 Sản Phẩm</span>
+            <a href="#" class="cat-link">Khám phá +</a>
+          </div>
+          <div class="cat-card__icon">💪</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BESTSELLERS ===== -->
+  <section class="products section" id="sale">
+    <div class="container">
+      <div class="section-header">
+        <h2>Sản Phẩm Bán Chạy</h2>
+        <div class="filter-tabs" id="filterTabs">
+          <button class="filter-tab active" data-filter="all">Tất Cả</button>
+          <button class="filter-tab" data-filter="chạy bộ">Chạy Bộ</button>
+          <button class="filter-tab" data-filter="lifestyle">Lifestyle</button>
+          <button class="filter-tab" data-filter="bóng rổ">Bóng Rổ</button>
+          <button class="filter-tab" data-filter="bóng đá">Bóng Đá</button>
+        </div>
+      </div>
+      <div class="products__grid" id="productsGrid">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURE BANNER ===== -->
+  <section class="feature-banner" id="bosuutap">
+    <div class="feature-banner__content">
+      <span class="feature-banner__label">JUST DO IT</span>
+      <h2>BỘ SƯU TẬP<br/> HÈ 2026</h2>
+      <p>Năng động - Phong cách - Tự do.<br/>Giày Nike – Bước đi của những người dẫn đầu.</p>
+      <button class="btn btn--primary">Khám Phá Ngay</button>
+    </div>
+    <div class="feature-banner__bg-text">SUMMER</div>
+  </section>
+
+  <!-- ===== NEW ARRIVALS ===== -->
+  <section class="arrivals section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Hàng Mới Về</h2>
+        <a href="#" class="see-all">Xem tất cả →</a>
+      </div>
+      <div class="arrivals__wrapper">
+        <div class="arrivals__label">
+          <span>NEW</span>
+          <span>ARRIVALS</span>
+          <span>2026</span>
+        </div>
+        <div class="arrivals__scroll" id="arrivalsScroll">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWS ===== -->
+<section class="news section" id="blog">
+  <div class="container">
+    <div class="section-header">
+      <h2>Tin Tức & Blog</h2>
+      <a href="#" class="see-all">Xem tất cả →</a>
+    </div>
+    <div class="news__grid">
+      
+      <!-- Card Featured -->
+      <article class="news-card news-card--featured">
+        <div class="news-card__img">
+          <img src="images/blog/Nike_Air_Max_DN8-removebg-preview.png" alt="Nike Air Max DN8 Review">
+          <span class="news-tag">Review</span>
+        </div>
+        <div class="news-card__body">
+          <time>14 tháng 05, 2026</time>
+          <h3>Nike Air Max DN8 – Đế khí lớn nhất lịch sử Nike có gì đặc biệt?</h3>
+          <p>Chiếc giày mới nhất của Nike hứa hẹn mang lại cảm giác êm ái chưa từng có với hệ thống đệm Air kép cải tiến...</p>
+          <a href="#" class="news-read">Đọc thêm →</a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="news-card">
+        <div class="news-card__img">
+          <img src="images/blog/cach_do_giay_nike-removebg-preview.png" alt="Cách chọn size Nike">
+          <span class="news-tag">Hướng dẫn</span>
+        </div>
+        <div class="news-card__body">
+          <time>10 tháng 05, 2026</time>
+          <h3>Cách chọn size giày Nike chuẩn nhất cho người Việt Nam</h3>
+          <a href="#" class="news-read">Đọc thêm →</a>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="news-card">
+        <div class="news-card__img">
+          <img src="images/blog/sale-removebg-preview.png" alt="Sale tháng 5">
+          <span class="news-tag">Sale</span>
+        </div>
+        <div class="news-card__body">
+          <time>05 tháng 05, 2026</time>
+          <h3>Sale khủng tháng 5 – Giảm đến 50% Nike Air Force 1 và Dunk Low</h3>
+          <a href="#" class="news-read">Đọc thêm →</a>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="news-card">
+        <div class="news-card__img">
+          <img src="images/blog/Top_10_mẫu_giày_Nike_đẹp_nhất_2026_dành_cho_giới_trẻ_Việt-removebg-preview.png" alt="Top giày lifestyle">
+          <span class="news-tag">Lifestyle</span>
+        </div>
+        <div class="news-card__body">
+          <time>01 tháng 05, 2026</time>
+          <h3>Top 10 mẫu giày Nike đẹp nhất 2026 dành cho giới trẻ Việt</h3>
+          <a href="#" class="news-read">Đọc thêm →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter">
+    <div class="newsletter__content">
+      <h2>Đăng Ký Nhận Ưu Đãi</h2>
+      <p>Nhận thông tin sale sớm nhất & ưu đãi độc quyền dành cho thành viên</p>
+      <form class="newsletter__form" id="newsletterForm">
+        <input type="email" placeholder="Nhập email của bạn..." required />
+        <button type="submit" class="btn btn--primary">Đăng Ký</button>
+      </form>
+      <p class="newsletter__note">Chúng tôi không spam. Hủy đăng ký bất kỳ lúc nào.</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <svg viewBox="0 0 200 70" fill="white" xmlns="http://www.w3.org/2000/svg" height="36">
+          <path d="M190 10L55 55C40 62 20 60 10 50C0 40 5 20 25 15C38 10 55 14 65 22L190 10Z"/>
+        </svg>
+        <p>Nike Store Việt Nam – Chính hãng 100%<br/>180 Cao Lỗ, Phường 4, Quận 8, TP.HCM</p>
+        <div class="footer__socials">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="TikTok">tt</a>
+          <a href="#" aria-label="YouTube">yt</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Sản Phẩm</h4>
+        <ul>
+          <li><a href="#">Giày Chạy Bộ</a></li>
+          <li><a href="#">Giày Lifestyle</a></li>
+          <li><a href="#">Giày Bóng Rổ</a></li>
+          <li><a href="#">Giày Bóng Đá</a></li>
+          <li><a href="#">Phụ Kiện</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Hỗ Trợ</h4>
+        <ul>
+          <li><a href="#">Tra cứu đơn hàng</a></li>
+          <li><a href="#">Chính sách đổi trả</a></li>
+          <li><a href="#">Hướng dẫn chọn size</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Liên hệ</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Thông Tin</h4>
+        <ul>
+          <li><a href="#">Về Chúng Tôi</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Tuyển Dụng</a></li>
+          <li><a href="#">Chính sách bảo mật</a></li>
+        </ul>
+        <div class="footer__contact">
+          <p>📞 (028) 38 505 520</p>
+          <p>✉️ nike@nikestore.vn</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 Nike Store Vietnam. Bảo lưu mọi quyền.</p>
+      <div class="footer__payments">
+        <span>VISA</span><span>MC</span><span>MOMO</span><span>VNPAY</span><span>COD</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== CART DRAWER ===== -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer__header">
+      <h3>Giỏ Hàng (<span id="cartCount">0</span>)</h3>
+      <button id="cartClose">✕</button>
+    </div>
+    <div class="cart-drawer__body" id="cartBody">
+      <div class="cart-empty" id="cartEmpty">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="60"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <p>Giỏ hàng trống</p>
+      </div>
+      <div id="cartItems"></div>
+    </div>
+    <div class="cart-drawer__footer" id="cartFooter" style="display:none">
+      <div class="cart-total">
+        <span>Tổng cộng:</span>
+        <strong id="cartTotal">0₫</strong>
+      </div>
+      <button class="btn btn--primary" style="width:100%">Thanh Toán</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/script.js"></script>
+
+<!-- ===== STUDENT INFO FOOTER ===== -->
+<div class="student-footer">
+  <p>Họ và tên: <strong>Thái Tín Khang</strong> &nbsp;|&nbsp; MSSV: <strong>DH52102716</strong> &nbsp;|&nbsp; Lớp: <strong>D21_TH01</strong> &nbsp;|&nbsp; Nhóm 1 Thứ 7 Ca 3</p>
+</div>
+
+</body>
+</html>

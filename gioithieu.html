@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giới Thiệu | Nike Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/gioithieu.css" />
+
+<style>
+.student-footer {
+  background: #fff;
+  border-top: 1.5px solid #e0e0e0;
+  padding: 14px 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  letter-spacing: 0.2px;
+}
+.student-footer strong { color: #111; font-weight: 600; }
+</style>
+
+<style id="mob-nav-css">
+.mob-bar { display: none; }
+.mob-dropdown { display: none; }
+@media (max-width: 900px) {
+  .mob-bar {
+    display: flex; align-items: stretch;
+    background: #1a1a1a;
+    position: sticky; top: 62px; z-index: 998; height: 52px;
+  }
+  .mob-bar__left {
+    display: flex; align-items: center; gap: 10px;
+    padding: 0 18px; color: white; font-size: 14px; font-weight: 600;
+    flex: 1; cursor: pointer; user-select: none; transition: background .2s;
+  }
+  .mob-bar__left:hover { background: rgba(255,255,255,.05); }
+  .mob-bar__chevron { margin-left: auto; transition: transform .3s; flex-shrink: 0; }
+  .mob-bar.open .mob-bar__chevron { transform: rotate(180deg); }
+  .mob-bar__toggle {
+    background: #22c55e; border: none; color: white;
+    width: 60px; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; flex-shrink: 0; transition: background .2s;
+  }
+  .mob-bar__toggle:hover { background: #16a34a; }
+  .mob-dropdown {
+    display: block; background: #1e1e1e;
+    position: sticky; top: 114px; z-index: 997;
+    max-height: 0; overflow: hidden;
+    transition: max-height .35s cubic-bezier(.4,0,.2,1);
+  }
+  .mob-dropdown.open { max-height: 420px; }
+  .mob-dropdown ul { list-style: none; padding: 0; margin: 0; }
+  .mob-dropdown li { border-bottom: 1px solid rgba(255,255,255,.07); }
+  .mob-dropdown li:last-child { border-bottom: none; }
+  .mob-dropdown li a {
+    display: block; padding: 15px 24px;
+    color: rgba(255,255,255,.85); font-size: 15px; font-weight: 500;
+    text-align: center; text-decoration: none; letter-spacing: .3px;
+    transition: background .2s, color .2s;
+  }
+  .mob-dropdown li a:hover { background: rgba(34,197,94,.12); color: #22c55e; }
+}
+</style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header__top">
+      <span>🚀 MIỄN PHÍ VẬN CHUYỂN ĐƠN HÀNG TRÊN 1.500.000₫ &nbsp;|&nbsp; ĐỔI TRẢ 30 NGÀY</span>
+    </div>
+    <nav class="header__nav">
+      <div class="nav__logo">
+        <a href="index.html">
+          <svg viewBox="0 0 200 70" fill="currentColor" xmlns="http://www.w3.org/2000/svg" height="40">
+            <path d="M190 10L55 55C40 62 20 60 10 50C0 40 5 20 25 15C38 10 55 14 65 22L190 10Z"/>
+          </svg>
+        </a>
+      </div>
+      <ul class="nav__links">
+        <li><a href="index.html">Trang Chủ</a></li>
+        <li><a href="index.html#cuahang">Cửa Hàng</a></li>
+        <li><a href="index.html#bosuutap">Bộ Sưu Tập</a></li>
+        <li><a href="index.html#sale">Sale</a></li>
+        <li><a href="index.html#blog">Blog</a></li>
+        <li><a href="lienhe.html">Liên Hệ</a></li>
+        <li><a href="gioithieu.html" class="active">Giới Thiệu</a></li>
+        <li><a href="thuchanh.html">Thực Hành</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="index.html" class="nav__icon" aria-label="Về trang chủ" title="Về trang chủ">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+  <!-- MOBILE DROPDOWN NAV -->
+  <div class="mob-bar" id="mobBar">
+    <div class="mob-bar__left">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <span>Danh mục sản phẩm</span>
+      <svg class="mob-bar__chevron" id="mobChevron" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <button class="mob-bar__toggle" id="mobToggle" aria-label="Menu">
+      <span class="mob-icon mob-icon--open"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></span>
+      <span class="mob-icon mob-icon--close" style="display:none"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+    </button>
+  </div>
+  <div class="mob-dropdown" id="mobDropdown">
+    <ul>
+      <li><a href="index.html">Trang Chủ</a></li>
+      <li><a href="index.html#cuahang">Cửa Hàng</a></li>
+      <li><a href="lienhe.html">Liên Hệ</a></li>
+      <li><a href="index.html#blog">Blog</a></li>
+      <li><a href="gioithieu.html">Về Chúng Tôi</a></li>
+      <li><a href="thuchanh.html">Lab Thực Hành</a></li>
+    </ul>
+  </div>
+
+
+  <!-- ===== HERO ===== -->
+  <section class="gt-hero">
+    <span class="gt-hero__label">Nike Store Vietnam — 2026</span>
+    <h1>GIỚI THIỆU<br/><em>DỰ ÁN</em></h1>
+    <p>Website bán giày Nike được xây dựng bằng HTML, CSS và JavaScript thuần — thiết kế hiện đại, đầy đủ chức năng mua hàng online.</p>
+    <div class="gt-hero__bg-text">ABOUT</div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="gt-stats">
+    <div class="gt-stats__grid">
+      <div class="gt-stat">
+        <strong>5</strong>
+        <span>Trang Web</span>
+      </div>
+      <div class="gt-stat">
+        <strong>8+</strong>
+        <span>Chức Năng</span>
+      </div>
+      <div class="gt-stat">
+        <strong>3</strong>
+        <span>Ngôn Ngữ Lập Trình</span>
+      </div>
+      <div class="gt-stat">
+        <strong>100%</strong>
+        <span>Responsive</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CHỨC NĂNG ===== -->
+  <section class="gt-features">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2>Các Chức Năng Đã Làm</h2>
+        </div>
+        <p>8 tính năng chính</p>
+      </div>
+
+      <div class="feat-grid">
+
+        <!-- 1 -->
+        <div class="feat-card" style="--c:#ff3e00">
+          <span class="feat-num">01</span>
+          <span class="feat-icon">🎠</span>
+          <span class="feat-badge">Hero</span>
+          <h3>Slider Hero</h3>
+          <p>Trình chiếu 3 slide tự động với hiệu ứng chuyển mượt. Hỗ trợ điều hướng bằng nút mũi tên, chấm tròn và vuốt trên mobile.</p>
+          <ul class="feat-list">
+            <li>3 slide Nike Air Max / Force 1 / Alphafly</li>
+            <li>Tự động chuyển sau 5 giây</li>
+            <li>Swipe trên thiết bị cảm ứng</li>
+            <li>Dots navigation</li>
+          </ul>
+        </div>
+
+        <!-- 2 -->
+        <div class="feat-card" style="--c:#1a73e8">
+          <span class="feat-num">02</span>
+          <span class="feat-icon">🛒</span>
+          <span class="feat-badge" style="background:#1a73e8">Giỏ Hàng</span>
+          <h3>Giỏ Hàng</h3>
+          <p>Hệ thống giỏ hàng đầy đủ với ngăn kéo bên phải, lưu trữ dữ liệu bằng localStorage. Thêm, xóa, đếm số lượng sản phẩm.</p>
+          <ul class="feat-list">
+            <li>Drawer trượt từ phải vào</li>
+            <li>Lưu dữ liệu localStorage</li>
+            <li>Cập nhật badge số lượng realtime</li>
+            <li>Tính tổng tiền tự động</li>
+          </ul>
+        </div>
+
+        <!-- 3 -->
+        <div class="feat-card" style="--c:#00a86b">
+          <span class="feat-num">03</span>
+          <span class="feat-icon">🔍</span>
+          <span class="feat-badge" style="background:#00a86b">Tìm Kiếm</span>
+          <h3>Tìm Kiếm</h3>
+          <p>Thanh tìm kiếm ẩn/hiện với animation. Tìm theo tên sản phẩm hoặc danh mục, hiển thị kết quả ngay trên lưới sản phẩm.</p>
+          <ul class="feat-list">
+            <li>Tìm theo tên & danh mục</li>
+            <li>Kết quả realtime</li>
+            <li>Thông báo số lượng tìm thấy</li>
+            <li>Nhấn Enter để tìm</li>
+          </ul>
+        </div>
+
+        <!-- 4 -->
+        <div class="feat-card" style="--c:#7b00ff">
+          <span class="feat-num">04</span>
+          <span class="feat-icon">🗂️</span>
+          <span class="feat-badge" style="background:#7b00ff">Lọc SP</span>
+          <h3>Lọc Sản Phẩm</h3>
+          <p>Tab lọc sản phẩm theo danh mục với animation mờ dần — Tất cả, Chạy bộ, Lifestyle, Bóng rổ, Bóng đá.</p>
+          <ul class="feat-list">
+            <li>5 danh mục lọc</li>
+            <li>Animation mượt khi lọc</li>
+            <li>Hiển thị đúng active tab</li>
+            <li>Render lại lưới sản phẩm</li>
+          </ul>
+        </div>
+
+        <!-- 5 -->
+        <div class="feat-card" style="--c:#e8a000">
+          <span class="feat-num">05</span>
+          <span class="feat-icon">❤️</span>
+          <span class="feat-badge" style="background:#e8a000">Wishlist</span>
+          <h3>Yêu Thích</h3>
+          <p>Nút yêu thích trên từng sản phẩm — nhấn để thêm/bỏ khỏi danh sách yêu thích với hiệu ứng tim đập.</p>
+          <ul class="feat-list">
+            <li>Toggle ♡ / ♥ trên mỗi card</li>
+            <li>Hiệu ứng màu khi active</li>
+            <li>Toast thông báo</li>
+          </ul>
+        </div>
+
+        <!-- 6 -->
+        <div class="feat-card" style="--c:#ff3e00">
+          <span class="feat-num">06</span>
+          <span class="feat-icon">📱</span>
+          <span class="feat-badge">Responsive</span>
+          <h3>Responsive Design</h3>
+          <p>Giao diện thích ứng hoàn toàn trên mọi thiết bị — mobile, tablet, desktop. Menu hamburger trên màn hình nhỏ.</p>
+          <ul class="feat-list">
+            <li>Mobile-first design</li>
+            <li>Hamburger menu</li>
+            <li>Lưới sản phẩm tự co giãn</li>
+            <li>Hero ẩn ảnh giày trên mobile</li>
+          </ul>
+        </div>
+
+        <!-- 7 -->
+        <div class="feat-card" style="--c:#1a73e8">
+          <span class="feat-num">07</span>
+          <span class="feat-icon">✍️</span>
+          <span class="feat-badge" style="background:#1a73e8">Liên Hệ</span>
+          <h3>Form Đặt Hàng</h3>
+          <p>Trang liên hệ với form đăng ký thông tin khách hàng đầy đủ — họ tên, điện thoại, email, địa chỉ và nội dung yêu cầu.</p>
+          <ul class="feat-list">
+            <li>Validate form dữ liệu</li>
+            <li>Label animation khi focus</li>
+            <li>Hiệu ứng submit thành công</li>
+          </ul>
+        </div>
+
+        <!-- 8 -->
+        <div class="feat-card" style="--c:#00a86b">
+          <span class="feat-num">08</span>
+          <span class="feat-icon">🔔</span>
+          <span class="feat-badge" style="background:#00a86b">UX</span>
+          <h3>Toast & Animation</h3>
+          <p>Hệ thống thông báo Toast nổi lên khi thêm vào giỏ, yêu thích hay đăng ký email. Scroll animation khi cuộn trang.</p>
+          <ul class="feat-list">
+            <li>Toast notification tự ẩn</li>
+            <li>Scroll reveal animation</li>
+            <li>Hover effects trên card</li>
+            <li>Floating shoe animation</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DANH SÁCH TRANG ===== -->
+  <section class="gt-pages">
+    <div class="container">
+      <div class="section-header">
+        <h2>Danh Sách Các Trang</h2>
+        <p>Cấu trúc dự án</p>
+      </div>
+      <table class="pages-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Tên File</th>
+            <th>Tên Trang</th>
+            <th>Mô Tả</th>
+            <th>Trạng Thái</th>
+            <th>Truy Cập</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><code>index.html</code></td>
+            <td>🏠 Trang Chủ</td>
+            <td>Hero slider, sản phẩm, bộ sưu tập, blog, newsletter</td>
+            <td><span class="status-badge status-done">✓ Hoàn thành</span></td>
+            <td><a href="index.html" class="page-link">Mở →</a></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><code>lienhe.html</code></td>
+            <td>📞 Liên Hệ</td>
+            <td>Form đăng ký thông tin khách hàng & đặt hàng</td>
+            <td><span class="status-badge status-done">✓ Hoàn thành</span></td>
+            <td><a href="lienhe.html" class="page-link">Mở →</a></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><code>gioithieu.html</code></td>
+            <td>📋 Giới Thiệu</td>
+            <td>Giới thiệu dự án, chức năng và công nghệ đã dùng</td>
+            <td><span class="status-badge status-done">✓ Hoàn thành</span></td>
+            <td><a href="gioithieu.html" class="page-link">Mở →</a></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><code>thuchanh.html</code></td>
+            <td>📚 Thực Hành</td>
+            <td>Tổng hợp bài tập & dự án thực hành đã làm</td>
+            <td><span class="status-badge status-done">✓ Hoàn thành</span></td>
+            <td><a href="thuchanh.html" class="page-link">Mở →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== CÔNG NGHỆ ===== -->
+  <section class="gt-tech">
+    <div class="container">
+      <div class="section-header">
+        <h2>Công Nghệ Sử Dụng</h2>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-icon">🌐</div>
+          <h4>HTML5</h4>
+          <p>Cấu trúc trang web semantic, thẻ section, article, header, nav, footer — chuẩn W3C.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">🎨</div>
+          <h4>CSS3</h4>
+          <p>Flexbox, Grid, CSS Variables, Animation, Keyframes, Media Queries — responsive hoàn toàn.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">⚡</div>
+          <h4>JavaScript</h4>
+          <p>Vanilla JS thuần — DOM manipulation, localStorage, Event Listeners, IntersectionObserver.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">🔤</div>
+          <h4>Google Fonts</h4>
+          <p>Bebas Neue (display font) + Barlow / Poppins (body font) — phong cách Nike chuyên nghiệp.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">📐</div>
+          <h4>CSS Custom Properties</h4>
+          <p>Hệ thống design token: màu sắc, font, border-radius, shadow nhất quán toàn site.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">💾</div>
+          <h4>localStorage</h4>
+          <p>Lưu giỏ hàng, danh sách yêu thích vào trình duyệt — dữ liệu không mất khi tải lại trang.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TÁC GIẢ ===== -->
+  <section class="gt-author">
+    <div class="container">
+      <div class="section-header">
+        <h2>Thông Tin Tác Giả</h2>
+      </div>
+      <div class="author-card">
+        <div class="author-avatar">👨‍💻</div>
+        <div class="author-info">
+          <div class="author-role">Sinh Viên — Lập Trình Web</div>
+          <h3>Dự Án Thực Hành</h3>
+          <p>Website Nike Store được xây dựng như một dự án thực hành lập trình web, áp dụng các kỹ thuật HTML5, CSS3 và JavaScript hiện đại để tạo ra một giao diện thương mại điện tử chuyên nghiệp, đầy đủ chức năng.</p>
+          <div class="author-links">
+            <a href="thuchanh.html" class="author-link author-link--primary">📚 Xem Bài Tập</a>
+            <a href="lienhe.html" class="author-link author-link--outline">📞 Liên Hệ</a>
+            <a href="index.html" class="author-link author-link--outline">🏠 Trang Chủ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="gt-footer">
+    <p>© 2026 Nike Store Vietnam &nbsp;|&nbsp; Dự án thực hành HTML/CSS/JS &nbsp;|&nbsp; <a href="index.html">← Về Trang Chủ</a></p>
+  </div>
+
+
+<!-- ===== STUDENT INFO FOOTER ===== -->
+<div class="student-footer">
+  <p>Họ và tên: <strong>Thái Tín Khang</strong> &nbsp;|&nbsp; MSSV: <strong>DH52102716</strong> &nbsp;|&nbsp; Lớp: <strong>D21_TH01</strong> &nbsp;|&nbsp; Nhóm 1 Thứ 7 Ca 3</p>
+</div>
+
+
+<script>
+(function(){
+  var bar=document.getElementById('mobBar'),
+      tog=document.getElementById('mobToggle'),
+      dd =document.getElementById('mobDropdown'),
+      ov =document.getElementById('overlay');
+  if(!tog||!dd) return;
+  var io=tog.querySelector('.mob-icon--open'),
+      ic=tog.querySelector('.mob-icon--close');
+  function open(){dd.classList.add('open');bar.classList.add('open');io.style.display='none';ic.style.display='flex';if(ov)ov.classList.add('active');}
+  function close(){dd.classList.remove('open');bar.classList.remove('open');io.style.display='flex';ic.style.display='none';if(ov)ov.classList.remove('active');}
+  tog.addEventListener('click',function(){dd.classList.contains('open')?close():open();});
+  bar.querySelector('.mob-bar__left').addEventListener('click',function(){dd.classList.contains('open')?close():open();});
+  if(ov)ov.addEventListener('click',close);
+  dd.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+}());
+</script>
+
+</body>
+</html>
