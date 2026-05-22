@@ -806,37 +806,4 @@ if (btnCheckout) {
     openCheckoutModal();     // Mở modal thanh toán
   });
 }
-// ============================================================
-// MODAL ĐĂNG NHẬP / ĐĂNG KÝ
-// ============================================================
-document.addEventListener('DOMContentLoaded', () => {
-  const accountBtn = document.getElementById('accountBtn');
-  const authModal = document.getElementById('authModal');
-  const modalClose = document.getElementById('modalClose');
 
-  if (!authModal) {
-    console.error("Không tìm thấy modal đăng nhập! Kiểm tra HTML có id='authModal' không.");
-    return;
-  }
-
-  // Click icon người → mở modal
-  if (accountBtn) {
-    accountBtn.addEventListener('click', () => {
-      authModal.style.display = 'flex';
-    });
-  }
-
-  // Click nút X → đóng modal
-  if (modalClose) {
-    modalClose.addEventListener('click', () => {
-      authModal.style.display = 'none';
-    });
-  }
-
-  // Click ra ngoài modal → đóng
-  authModal.addEventListener('click', (e) => {
-    if (e.target === authModal) {
-      authModal.style.display = 'none';
-    }
-  });
-});
