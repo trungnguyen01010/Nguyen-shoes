@@ -1298,10 +1298,9 @@ button { cursor: pointer; border: none; background: none; font-family: 'Poppins'
   border-radius: 8px;
 }
 .footer__map {
-  width: 100%;        /* full ngang */
-  max-width: 600px;   /* 👈 giới hạn giống hình */
-  height: 250px;      /* 👈 chiều cao như bạn gửi */
-  margin-top: 10px;
+  width: 400px;      /* 👈 thu nhỏ lại */
+  height: 220px;     /* 👈 giảm chiều cao */
+  margin: 10px auto; /* 👈 căn giữa */
   border-radius: 12px;
   overflow: hidden;
 }
