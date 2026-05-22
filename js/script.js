@@ -597,6 +597,9 @@ function initCart() {
 // ============================================================
 // CATEGORY CARDS - CLICK ĐỂ LỌC SẢN PHẨM
 // ============================================================
+// ============================================================
+// CATEGORY CARDS
+// ============================================================
 function initCategoryCards() {
   const catCards = document.querySelectorAll('.cat-card');
   
@@ -604,13 +607,11 @@ function initCategoryCards() {
     card.addEventListener('click', () => {
       const cat = card.dataset.cat;
       
-      // Cuộn đến phần sản phẩm
       const saleSection = document.getElementById('sale');
       if (saleSection) {
         saleSection.scrollIntoView({ behavior: 'smooth' });
       }
 
-      // Đợi một chút để cuộn xong rồi mới filter
       setTimeout(() => {
         const tabs = document.querySelectorAll('.filter-tab');
         const match = [...tabs].find(t => t.dataset.filter === cat);
@@ -620,10 +621,9 @@ function initCategoryCards() {
           match.classList.add('active');
           renderProducts(cat);
         } else {
-          // Nếu không tìm thấy tab tương ứng thì filter all
           renderProducts('all');
         }
-      }, 800); // Tăng thời gian một chút cho mượt
+      }, 800);
     });
   });
 }
@@ -632,10 +632,10 @@ function initCategoryCards() {
 // INIT - DOMContentLoaded
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
-  // Render nội dung động
+  
+  // Render nội dung
   renderProducts('all');
   renderArrivals();
-  initMobileNav();
 
   // Hero Slider
   const heroPrev = document.getElementById('heroPrev');
@@ -658,19 +658,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Khởi tạo các chức năng khác
-  initFilterTabs();
-  initSearch();
-  initMobileNav();
-  initStickyHeader();
-  initNewsletter();
-  initCart();
-  initCategoryCards();        // ← Đảm bảo có dòng này
-
-  // Scroll animations
-  setTimeout(initScrollAnimations, 400);
-});
-  // Touch swipe
+  // Touch swipe cho Hero
   let touchStartX = 0;
   const heroSection = document.querySelector('.hero');
   if (heroSection) {
@@ -689,7 +677,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   startSlider();
 
-  // Khởi tạo các chức năng khác
+  // Khởi tạo các chức năng
   initFilterTabs();
   initSearch();
   initMobileNav();
@@ -699,9 +687,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initCategoryCards();
 
   // Scroll animations
-  setTimeout(initScrollAnimations, 300);
+  setTimeout(initScrollAnimations, 400);
 });
-
 /* =========================================
    MOBILE DROPDOWN NAV
    ========================================= */
