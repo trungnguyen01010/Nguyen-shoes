@@ -8,20 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;0,900;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-
-<style>
-.student-footer {
-  background: #fff;
-  border-top: 1.5px solid #e0e0e0;
-  padding: 14px 20px;
-  text-align: center;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  color: #333;
-  letter-spacing: 0.2px;
-}
-.student-footer strong { color: #111; font-weight: 600; }
-</style>
 </head>
 <body>
 
@@ -72,31 +58,18 @@
     </div>
   </header>
 
-  <!-- ===== MOBILE MENU BAR + DROPDOWN ===== -->
-  <div class="mob-bar" id="mobBar">
-    <div class="mob-bar__left">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      <span>Danh mục sản phẩm</span>
-      <svg class="mob-bar__chevron" id="mobChevron" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-    <button class="mob-bar__toggle" id="mobToggle" aria-label="Menu">
-      <span class="mob-icon mob-icon--open">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </span>
-      <span class="mob-icon mob-icon--close" style="display:none">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </span>
-    </button>
-  </div>
-
-  <div class="mob-dropdown" id="mobDropdown">
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav__close" id="mobileClose">✕</button>
     <ul>
-      <li><a href="index.html">Trang Chủ</a></li>
-      <li><a href="index.html#cuahang">Cửa Hàng</a></li>
+      <li><a href="#">Trang Chủ</a></li>
+      <li><a href="#cuahang">Cửa Hàng</a></li>
+      <li><a href="#bosuutap">Bộ Sưu Tập</a></li>
+      <li><a href="#sale">Sale</a></li>
+      <li><a href="#blog">Blog</a></li>
       <li><a href="lienhe.html">Liên Hệ</a></li>
-      <li><a href="index.html#blog">Blog</a></li>
-      <li><a href="gioithieu.html">Về Chúng Tôi</a></li>
-      <li><a href="thuchanh.html">Lab Thực Hành</a></li>
+      <li><a href="gioithieu.html">Giới Thiệu</a></li>
+      <li><a href="thuchanh.html">Thực Hành</a></li>
     </ul>
   </div>
   <div class="overlay" id="overlay"></div>
@@ -159,7 +132,7 @@
     </div>
 
     <!-- Hero Controls -->
-    <button class="hero__arrow hero__arrow--prev" id="heroPrev" aria-label="Trước">
+<<button class="hero__arrow hero__arrow--prev" id="heroPrev" aria-label="Trước">
       ←
     </button>
     <button class="hero__arrow hero__arrow--next" id="heroNext" aria-label="Sau">
@@ -396,6 +369,11 @@
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <svg viewBox="0 0 200 70" fill="white" xmlns="http://www.w3.org/2000/svg" height="36">
+          <path d="M190 10L55 55C40 62 20 60 10 50C0 40 5 20 25 15C38 10 55 14 65 22L190 10Z"/>
+        </svg>
         <p>Nike Store Việt Nam – Chính hãng 100%<br/>180 Cao Lỗ, Phường 4, Quận 8, TP.HCM</p>
         <div class="footer__socials">
           <a href="#" aria-label="Facebook">f</a>
@@ -472,11 +450,5 @@
   <div class="toast" id="toast"></div>
 
   <script src="js/script.js"></script>
-
-<!-- ===== STUDENT INFO FOOTER ===== -->
-<div class="student-footer">
-  <p>Họ và tên: <strong>Phạm Nguyễn Trung Nguyên</strong> &nbsp;|&nbsp; MSSV: <strong>DH52301331</strong> &nbsp;|&nbsp; Lớp: <strong>D23_TH04</strong> &nbsp;|&nbsp; Nhóm 19 Thứ 5 Ca 4</p>
-</div>
-
 </body>
 </html>
