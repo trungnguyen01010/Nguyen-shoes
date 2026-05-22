@@ -1260,3 +1260,40 @@ button { cursor: pointer; border: none; background: none; font-family: 'Poppins'
     background: rgba(34,197,94,0.2);
   }
 }
+/* MODAL THANH TOÁN */
+.checkout-modal {
+  max-width: 500px;
+  padding: 25px;
+}
+
+.checkout-items {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.checkout-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.checkout-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin: 15px 0 20px;
+  font-weight: 700;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
