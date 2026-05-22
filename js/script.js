@@ -456,7 +456,7 @@ function initSearch() {
 }
 
 // ============================================================
-// MOBILE NAV
+// MOBILE NAV (ĐÃ SỬA)
 // ============================================================
 function initMobileNav() {
   const hamburger = document.getElementById('hamburger');
@@ -464,7 +464,10 @@ function initMobileNav() {
   const mobileClose = document.getElementById('mobileClose');
   const overlay = document.getElementById('overlay');
 
-  if (!hamburger) return;
+  if (!hamburger || !mobileNav || !mobileClose) {
+    console.warn("Mobile nav elements not found!");
+    return;
+  }
 
   hamburger.addEventListener('click', () => {
     mobileNav.classList.add('open');
@@ -481,13 +484,12 @@ function initMobileNav() {
   }
 
   mobileClose.addEventListener('click', closeMobileNav);
+
   overlay.addEventListener('click', () => {
     closeMobileNav();
     closeCart();
-    document.body.style.overflow = '';
   });
 }
-
 // ============================================================
 // STICKY HEADER
 // ============================================================
@@ -723,3 +725,53 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeMenu();
   });
 }());
+// ========== MODAL THANH TOÁN ==========
+const checkoutModal = document.getElementById('checkoutModal');
+const checkoutClose = document.getElementById('checkoutClose');
+const completeOrder = document.getElementById('completeOrder');
+
+function openCheckoutModal() {
+  if (cart.length === 0) {
+    showToast("Giỏ hàng trống!");
+    return;
+  }
+  
+  // Hiển thị danh sách sản phẩm
+  let html = '';
+  let total = 0;
+  
+  cart.forEach(item => {
+    const subtotal = item.price * item.qty;
+    total += subtotal;
+    html += `
+      <div class="checkout-item">
+        <span>${item.name} × ${item.qty}</span>
+        <span>${subtotal.toLocaleString('vi-VN')}₫</span>
+      </div>`;
+  });
+  
+  document.getElementById('modalCheckoutItems').innerHTML = html;
+  document.getElementById('modalCheckoutTotal').textContent = total.toLocaleString('vi-VN') + '₫';
+  
+  checkoutModal.style.display = 'flex';
+}
+
+// Mở modal khi click nút Thanh Toán trong giỏ hàng
+document.addEventListener('click', function(e) {
+  if (e.target && e.target.id === 'btnCheckout') {
+    openCheckoutModal();
+  }
+});
+
+checkoutClose.addEventListener('click', () => {
+  checkoutModal.style.display = 'none';
+});
+
+completeOrder.addEventListener('click', () => {
+  alert('✅ Đơn hàng của bạn đã được đặt thành công!\nCảm ơn bạn đã mua sắm tại Nike Store ❤️');
+  cart = [];                    // Xóa giỏ hàng
+  saveCart();
+  updateCartUI();
+  checkoutModal.style.display = 'none';
+  closeCart();                  // Đóng giỏ hàng
+});
