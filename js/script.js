@@ -839,5 +839,4 @@ document.addEventListener('DOMContentLoaded', () => {
       authModal.style.display = 'none';
     }
   });
-});
 
