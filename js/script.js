@@ -632,31 +632,31 @@ function initCategoryCards() {
 // INIT - DOMContentLoaded
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
-  
-  // Render nội dung
   renderProducts('all');
   renderArrivals();
 
   // Hero Slider
   const heroPrev = document.getElementById('heroPrev');
   const heroNext = document.getElementById('heroNext');
-  
-  heroPrev?.addEventListener('click', () => { 
-    goToSlide(currentSlide - 1); 
-    resetSlider(); 
-  });
-  
-  heroNext?.addEventListener('click', () => { 
-    goToSlide(currentSlide + 1); 
-    resetSlider(); 
-  });
+  heroPrev?.addEventListener('click', () => { goToSlide(currentSlide - 1); resetSlider(); });
+  heroNext?.addEventListener('click', () => { goToSlide(currentSlide + 1); resetSlider(); });
 
   document.querySelectorAll('.hero__dot').forEach(dot => {
-    dot.addEventListener('click', () => { 
-      goToSlide(parseInt(dot.dataset.index)); 
-      resetSlider(); 
-    });
+    dot.addEventListener('click', () => { goToSlide(parseInt(dot.dataset.index)); resetSlider(); });
   });
+
+  startSlider();
+
+  initFilterTabs();
+  initSearch();
+  initMobileNav();
+  initStickyHeader();
+  initNewsletter();
+  initCart();
+  initCategoryCards();
+
+  setTimeout(initScrollAnimations, 400);
+});
 
   // Touch swipe cho Hero
   let touchStartX = 0;
@@ -839,4 +839,5 @@ document.addEventListener('DOMContentLoaded', () => {
       authModal.style.display = 'none';
     }
   });
+});
 
