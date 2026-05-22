@@ -57,11 +57,8 @@
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
           <span class="cart-badge" id="cartBadge">0</span>
         </button>
-        <button class="nav__icon" aria-label="Tài khoản" id="accountBtn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
+        <button class="nav__icon" aria-label="Tài khoản">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </button>
         <button class="nav__hamburger" id="hamburger" aria-label="Menu">
           <span></span><span></span><span></span>
@@ -92,8 +89,7 @@
     </button>
   </div>
 
-  <div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav__close" id="mobileClose">✕</button>
+  <div class="mob-dropdown" id="mobDropdown">
     <ul>
       <li><a href="index.html">Trang Chủ</a></li>
       <li><a href="index.html#cuahang">Cửa Hàng</a></li>
@@ -106,76 +102,76 @@
   <div class="overlay" id="overlay"></div>
 
   <!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="hero__slides" id="heroSlides">
+  <section class="hero">
+    <div class="hero__slides" id="heroSlides">
 
-    <div class="hero__slide active" style="--bg:#0a0a0a">
-      <div class="hero__content">
-        <span class="hero__tag">Bộ Sưu Tập Mới 2026</span>
-        <h1 class="hero__title">NIKE<br/><em>AIR MAX</em><br/>DN8</h1>
-        <p class="hero__sub">Đế Air lớn nhất từ trước đến nay. Cảm giác bước đi như bay.</p>
-        <div class="hero__btns">
-          <button class="btn btn--primary">Mua Ngay</button>
-          <button class="btn btn--ghost">Xem Thêm</button>
+      <div class="hero__slide active" style="--bg:#0a0a0a">
+        <div class="hero__content">
+          <span class="hero__tag">Bộ Sưu Tập Mới 2026</span>
+          <h1 class="hero__title">NIKE<br/><em>AIR MAX</em><br/>DN8</h1>
+          <p class="hero__sub">Đế Air lớn nhất từ trước đến nay. Cảm giác bước đi như bay.</p>
+          <div class="hero__btns">
+            <button class="btn btn--primary">Mua Ngay</button>
+            <button class="btn btn--ghost">Xem Thêm</button>
+          </div>
+          <div class="hero__price-tag">Từ <strong>3.500.000₫</strong></div>
         </div>
-        <div class="hero__price-tag">Từ <strong>3.500.000₫</strong></div>
+        <div class="hero__img-wrap">
+          <img src="images/hero/NIKE_AIR_MAX_DN8-removebg-preview.png" alt="NIKE AIR MAX DN8" class="hero-shoe-img">
+        </div>
+        <div class="hero__bg-text">AIR MAX</div>
       </div>
-      <div class="hero__img-wrap">
-        <img src="images/hero/NIKE_AIR_MAX_DN8-removebg-preview.png" alt="NIKE AIR MAX DN8" class="hero-shoe-img">
+
+      <div class="hero__slide" style="--bg:#D3D3FF">
+        <div class="hero__content">
+          <span class="hero__tag" style="background:#111;color:#fff">Classic Series</span>
+          <h1 class="hero__title" style="color:#111">NIKE<br/><em>AIR</em><br/>FORCE 1</h1>
+          <p class="hero__sub" style="color:#555">Huyền thoại bất diệt. Phong cách vượt thời gian từ 1982.</p>
+          <div class="hero__btns">
+            <button class="btn btn--primary" style="background:#111;color:#fff">Mua Ngay</button>
+            <button class="btn btn--ghost" style="border-color:#111;color:#111">Xem Thêm</button>
+          </div>
+          <div class="hero__price-tag" style="color:#111">Từ <strong>2.800.000₫</strong></div>
+        </div>
+        <div class="hero__img-wrap">
+          <img src="images/hero/NIKE_AIR_FORCE_1-removebg-preview.png" alt="NIKE AIR FORCE 1" class="hero-shoe-img">
+        </div>
+        <div class="hero__bg-text" style="color:rgba(0,0,0,0.04)">FORCE</div>
       </div>
-      <div class="hero__bg-text">AIR MAX</div>
+
+      <div class="hero__slide" style="--bg:#0d1b2a">
+        <div class="hero__content">
+          <span class="hero__tag" style="background:#00d4ff;color:#000">Pro Edition</span>
+          <h1 class="hero__title">NIKE<br/><em>ZOOM</em><br/>ALPHAFLY</h1>
+          <p class="hero__sub">Công nghệ carbon plate. Dành cho những bước chạy phá kỷ lục.</p>
+          <div class="hero__btns">
+            <button class="btn btn--primary" style="background:#00d4ff;color:#000">Mua Ngay</button>
+            <button class="btn btn--ghost">Xem Thêm</button>
+          </div>
+          <div class="hero__price-tag">Từ <strong>5.200.000₫</strong></div>
+        </div>
+        <div class="hero__img-wrap">
+          <img src="images/hero/NIKE_ZOOM_ALPHAFLY-removebg-preview.png" alt="NIKE ZOOM ALPHAFLY" class="hero-shoe-img">
+        </div>
+        <div class="hero__bg-text">ZOOM</div>
+      </div>
+
     </div>
 
-    <div class="hero__slide" style="--bg:#D3D3FF">
-      <div class="hero__content">
-        <span class="hero__tag" style="background:#111;color:#fff">Classic Series</span>
-        <h1 class="hero__title" style="color:#111">NIKE<br/><em>AIR</em><br/>FORCE 1</h1>
-        <p class="hero__sub" style="color:#555">Huyền thoại bất diệt. Phong cách vượt thời gian từ 1982.</p>
-        <div class="hero__btns">
-          <button class="btn btn--primary" style="background:#111;color:#fff">Mua Ngay</button>
-          <button class="btn btn--ghost" style="border-color:#111;color:#111">Xem Thêm</button>
-        </div>
-        <div class="hero__price-tag" style="color:#111">Từ <strong>2.800.000₫</strong></div>
-      </div>
-      <div class="hero__img-wrap">
-        <img src="images/hero/NIKE_AIR_FORCE_1-removebg-preview.png" alt="NIKE AIR FORCE 1" class="hero-shoe-img">
-      </div>
-      <div class="hero__bg-text" style="color:rgba(0,0,0,0.04)">FORCE</div>
+    <!-- Hero Controls -->
+    <button class="hero__arrow hero__arrow--prev" id="heroPrev" aria-label="Trước">
+      ←
+    </button>
+    <button class="hero__arrow hero__arrow--next" id="heroNext" aria-label="Sau">
+      →
+    </button>
+
+    <div class="hero__dots" id="heroDots">
+      <span class="hero__dot active" data-index="0"></span>
+      <span class="hero__dot" data-index="1"></span>
+      <span class="hero__dot" data-index="2"></span>
     </div>
-
-    <div class="hero__slide" style="--bg:#0d1b2a">
-      <div class="hero__content">
-        <span class="hero__tag" style="background:#00d4ff;color:#000">Pro Edition</span>
-        <h1 class="hero__title">NIKE<br/><em>ZOOM</em><br/>ALPHAFLY</h1>
-        <p class="hero__sub">Công nghệ carbon plate. Dành cho những bước chạy phá kỷ lục.</p>
-        <div class="hero__btns">
-          <button class="btn btn--primary" style="background:#00d4ff;color:#000">Mua Ngay</button>
-          <button class="btn btn--ghost">Xem Thêm</button>
-        </div>
-        <div class="hero__price-tag">Từ <strong>5.200.000₫</strong></div>
-      </div>
-      <div class="hero__img-wrap">
-        <img src="images/hero/NIKE_ZOOM_ALPHAFLY-removebg-preview.png" alt="NIKE ZOOM ALPHAFLY" class="hero-shoe-img">
-      </div>
-      <div class="hero__bg-text">ZOOM</div>
-    </div>
-
-  </div>
-
-  <!-- Hero Controls -->
-  <button class="hero__arrow hero__arrow--prev" id="heroPrev" aria-label="Trước">
-    ←
-  </button>
-  <button class="hero__arrow hero__arrow--next" id="heroNext" aria-label="Sau">
-    →
-  </button>
-
-  <div class="hero__dots" id="heroDots">
-    <span class="hero__dot active" data-index="0"></span>
-    <span class="hero__dot" data-index="1"></span>
-    <span class="hero__dot" data-index="2"></span>
-  </div>
-</section>
+  </section>
 
               <path d="M220 75 Q270 70 310 90 Q360 112 375 145 Q350 155 300 160 L200 155Z" fill="#7b00ff" opacity="0.7"/>
               <rect x="55" y="158" width="310" height="20" rx="8" fill="#111"/>
@@ -473,46 +469,12 @@
         <span>Tổng cộng:</span>
         <strong id="cartTotal">0₫</strong>
       </div>
-      <button class="btn btn--primary" style="width:100%" id="btnCheckout">Thanh Toán</button>
+      <button class="btn btn--primary" style="width:100%">Thanh Toán</button>
     </div>
   </div>
 
   <!-- Toast -->
   <div class="toast" id="toast"></div>
-  <!-- ===== MODAL THANH TOÁN ===== -->
-<div class="modal" id="checkoutModal">
-  <div class="modal-content checkout-modal">
-    <button class="modal-close" id="checkoutClose">✕</button>
-    <h2>Thanh Toán</h2>
-    
-    <div class="checkout-content">
-      <!-- Danh sách sản phẩm -->
-      <div class="checkout-items" id="modalCheckoutItems"></div>
-      
-      <!-- Tổng tiền -->
-      <div class="checkout-total">
-        <span>Tổng cộng:</span>
-        <strong id="modalCheckoutTotal">0₫</strong>
-      </div>
-
-      <!-- Form thông tin -->
-      <div class="checkout-form">
-        <input type="text" id="customerName" placeholder="Họ và tên" required>
-        <input type="tel" id="customerPhone" placeholder="Số điện thoại" required>
-        <input type="email" id="customerEmail" placeholder="Email" required>
-        <textarea id="customerAddress" placeholder="Địa chỉ nhận hàng" rows="3" required></textarea>
-        
-        <h4>Phương thức thanh toán</h4>
-        <label><input type="radio" name="paymentMethod" value="cod" checked> Thanh toán khi nhận hàng (COD)</label><br>
-        <label><input type="radio" name="paymentMethod" value="bank"> Chuyển khoản ngân hàng</label>
-      </div>
-    </div>
-
-    <button class="btn btn--primary" id="completeOrder" style="width:100%; padding:16px; font-size:16px;">
-      HOÀN TẤT ĐƠN HÀNG
-    </button>
-  </div>
-</div>
 
   <script src="js/script.js"></script>
 
