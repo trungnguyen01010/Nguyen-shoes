@@ -775,3 +775,15 @@ completeOrder.addEventListener('click', () => {
   checkoutModal.style.display = 'none';
   closeCart();                  // Đóng giỏ hàng
 });
+// ========== LIÊN KẾT NÚT THANH TOÁN VỚI MODAL ==========
+const btnCheckout = document.getElementById('btnCheckout');
+
+if (btnCheckout) {
+  btnCheckout.addEventListener('click', () => {
+    if (cart.length === 0) {
+      showToast("Giỏ hàng của bạn đang trống!");
+      return;
+    }
+    openCheckoutModal();     // Mở modal thanh toán
+  });
+}
