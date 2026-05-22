@@ -456,7 +456,7 @@ function initSearch() {
 }
 
 // ============================================================
-// MOBILE NAV (ĐÃ SỬA)
+// MOBILE NAV (ĐÃ SỬA AN TOÀN)
 // ============================================================
 function initMobileNav() {
   const hamburger = document.getElementById('hamburger');
@@ -464,8 +464,9 @@ function initMobileNav() {
   const mobileClose = document.getElementById('mobileClose');
   const overlay = document.getElementById('overlay');
 
-  if (!hamburger || !mobileNav || !mobileClose) {
-    console.warn("Mobile nav elements not found!");
+  // Kiểm tra an toàn trước khi thêm event
+  if (!hamburger || !mobileNav || !mobileClose || !overlay) {
+    console.warn("⚠️ Mobile nav elements not found! Kiểm tra ID trong HTML.");
     return;
   }
 
