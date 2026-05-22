@@ -456,7 +456,7 @@ function initSearch() {
 }
 
 // ============================================================
-// MOBILE NAV (ĐÃ SỬA AN TOÀN)
+// MOBILE NAV - PHIÊN BẢN AN TOÀN
 // ============================================================
 function initMobileNav() {
   const hamburger = document.getElementById('hamburger');
@@ -464,32 +464,33 @@ function initMobileNav() {
   const mobileClose = document.getElementById('mobileClose');
   const overlay = document.getElementById('overlay');
 
-  // Kiểm tra an toàn trước khi thêm event
-  if (!hamburger || !mobileNav || !mobileClose || !overlay) {
-    console.warn("⚠️ Mobile nav elements not found! Kiểm tra ID trong HTML.");
+  if (!hamburger || !mobileNav || !mobileClose) {
+    console.warn("Mobile nav elements not found!");
     return;
   }
 
+  // Mở menu
   hamburger.addEventListener('click', () => {
     mobileNav.classList.add('open');
-    overlay.classList.add('active');
+    if (overlay) overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
   });
 
+  // Đóng menu
   function closeMobileNav() {
     mobileNav.classList.remove('open');
-    if (!document.getElementById('cartDrawer').classList.contains('open')) {
-      overlay.classList.remove('active');
-    }
+    if (overlay) overlay.classList.remove('active');
     document.body.style.overflow = '';
   }
 
   mobileClose.addEventListener('click', closeMobileNav);
 
-  overlay.addEventListener('click', () => {
-    closeMobileNav();
-    closeCart();
-  });
+  if (overlay) {
+    overlay.addEventListener('click', () => {
+      closeMobileNav();
+      closeCart();
+    });
+  }
 }
 // ============================================================
 // STICKY HEADER
@@ -593,31 +594,48 @@ function initCart() {
 // ============================================================
 // CATEGORY CARDS
 // ============================================================
+// ============================================================
+// CATEGORY CARDS - CLICK ĐỂ LỌC SẢN PHẨM
+// ============================================================
 function initCategoryCards() {
-  document.querySelectorAll('.cat-card').forEach(card => {
+  const catCards = document.querySelectorAll('.cat-card');
+  
+  catCards.forEach(card => {
     card.addEventListener('click', () => {
       const cat = card.dataset.cat;
-      document.getElementById('sale')?.scrollIntoView({ behavior: 'smooth' });
+      
+      // Cuộn đến phần sản phẩm
+      const saleSection = document.getElementById('sale');
+      if (saleSection) {
+        saleSection.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // Đợi một chút để cuộn xong rồi mới filter
       setTimeout(() => {
         const tabs = document.querySelectorAll('.filter-tab');
         const match = [...tabs].find(t => t.dataset.filter === cat);
+        
         if (match) {
           tabs.forEach(t => t.classList.remove('active'));
           match.classList.add('active');
           renderProducts(cat);
+        } else {
+          // Nếu không tìm thấy tab tương ứng thì filter all
+          renderProducts('all');
         }
-      }, 600);
+      }, 800); // Tăng thời gian một chút cho mượt
     });
   });
 }
 
 // ============================================================
-// INIT
+// INIT - DOMContentLoaded
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
-  // Render nội dung
+  // Render nội dung động
   renderProducts('all');
   renderArrivals();
+  initMobileNav();
 
   // Hero Slider
   const heroPrev = document.getElementById('heroPrev');
@@ -627,6 +645,7 @@ document.addEventListener('DOMContentLoaded', () => {
     goToSlide(currentSlide - 1); 
     resetSlider(); 
   });
+  
   heroNext?.addEventListener('click', () => { 
     goToSlide(currentSlide + 1); 
     resetSlider(); 
@@ -639,6 +658,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Khởi tạo các chức năng khác
+  initFilterTabs();
+  initSearch();
+  initMobileNav();
+  initStickyHeader();
+  initNewsletter();
+  initCart();
+  initCategoryCards();        // ← Đảm bảo có dòng này
+
+  // Scroll animations
+  setTimeout(initScrollAnimations, 400);
+});
   // Touch swipe
   let touchStartX = 0;
   const heroSection = document.querySelector('.hero');
