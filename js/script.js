@@ -559,11 +559,31 @@ function initScrollAnimations() {
 // ============================================================
 // CART INIT
 // ============================================================
+// ============================================================
+// CART INIT (ĐÃ SỬA)
+// ============================================================
 function initCart() {
-  document.getElementById('cartToggle')?.addEventListener('click', openCart);
-  document.getElementById('cartClose')?.addEventListener('click', () => {
-    closeCart();
-  });
+  const cartToggle = document.getElementById('cartToggle');
+  const cartClose = document.getElementById('cartClose');
+  const overlay = document.getElementById('overlay');
+
+  if (cartToggle) {
+    cartToggle.addEventListener('click', openCart);
+  }
+
+  if (cartClose) {
+    cartClose.addEventListener('click', () => {
+      closeCart();
+    });
+  }
+
+  // Đóng khi click overlay
+  if (overlay) {
+    overlay.addEventListener('click', () => {
+      closeCart();
+    });
+  }
+
   updateCartUI();
 }
 
