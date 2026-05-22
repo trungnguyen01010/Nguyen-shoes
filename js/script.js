@@ -788,26 +788,34 @@ if (btnCheckout) {
     openCheckoutModal();     // Mở modal thanh toán
   });
 }
-// ========== MỞ MODAL ĐĂNG NHẬP KHI CLICK ICON TÀI KHOẢN ==========
+// ============================================================
+// MODAL ĐĂNG NHẬP / ĐĂNG KÝ
+// ============================================================
 const accountBtn = document.getElementById('accountBtn');
 const authModal = document.getElementById('authModal');
 const modalClose = document.getElementById('modalClose');
 
-if (accountBtn && authModal) {
-  accountBtn.addEventListener('click', () => {
-    authModal.style.display = 'flex';
-  });
-}
+if (authModal) {
 
-if (modalClose) {
-  modalClose.addEventListener('click', () => {
-    authModal.style.display = 'none';
-  });
-}
-
-// Đóng modal khi click ra ngoài
-authModal.addEventListener('click', (e) => {
-  if (e.target === authModal) {
-    authModal.style.display = 'none';
+  // Mở modal khi click icon Tài khoản
+  if (accountBtn) {
+    accountBtn.addEventListener('click', () => {
+      authModal.style.display = 'flex';
+    });
   }
-});
+
+  // Đóng modal bằng nút X
+  if (modalClose) {
+    modalClose.addEventListener('click', () => {
+      authModal.style.display = 'none';
+    });
+  }
+
+  // Đóng modal khi click ra ngoài nền
+  authModal.addEventListener('click', (e) => {
+    if (e.target === authModal) {
+      authModal.style.display = 'none';
+    }
+  });
+}
+
