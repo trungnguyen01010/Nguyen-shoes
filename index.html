@@ -469,12 +469,46 @@
         <span>Tổng cộng:</span>
         <strong id="cartTotal">0₫</strong>
       </div>
-      <button class="btn btn--primary" style="width:100%">Thanh Toán</button>
+      <button class="btn btn--primary" style="width:100%" id="btnCheckout">Thanh Toán</button>
     </div>
   </div>
 
   <!-- Toast -->
   <div class="toast" id="toast"></div>
+  <!-- ===== MODAL THANH TOÁN ===== -->
+<div class="modal" id="checkoutModal">
+  <div class="modal-content checkout-modal">
+    <button class="modal-close" id="checkoutClose">✕</button>
+    <h2>Thanh Toán</h2>
+    
+    <div class="checkout-content">
+      <!-- Danh sách sản phẩm -->
+      <div class="checkout-items" id="modalCheckoutItems"></div>
+      
+      <!-- Tổng tiền -->
+      <div class="checkout-total">
+        <span>Tổng cộng:</span>
+        <strong id="modalCheckoutTotal">0₫</strong>
+      </div>
+
+      <!-- Form thông tin -->
+      <div class="checkout-form">
+        <input type="text" id="customerName" placeholder="Họ và tên" required>
+        <input type="tel" id="customerPhone" placeholder="Số điện thoại" required>
+        <input type="email" id="customerEmail" placeholder="Email" required>
+        <textarea id="customerAddress" placeholder="Địa chỉ nhận hàng" rows="3" required></textarea>
+        
+        <h4>Phương thức thanh toán</h4>
+        <label><input type="radio" name="paymentMethod" value="cod" checked> Thanh toán khi nhận hàng (COD)</label><br>
+        <label><input type="radio" name="paymentMethod" value="bank"> Chuyển khoản ngân hàng</label>
+      </div>
+    </div>
+
+    <button class="btn btn--primary" id="completeOrder" style="width:100%; padding:16px; font-size:16px;">
+      HOÀN TẤT ĐƠN HÀNG
+    </button>
+  </div>
+</div>
 
   <script src="js/script.js"></script>
 
