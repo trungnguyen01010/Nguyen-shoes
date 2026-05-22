@@ -688,7 +688,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll animations
   setTimeout(initScrollAnimations, 400);
-});
+);
 /* =========================================
    MOBILE DROPDOWN NAV
    ========================================= */
