@@ -1298,9 +1298,9 @@ button { cursor: pointer; border: none; background: none; font-family: 'Poppins'
   border-radius: 8px;
 }
 .footer__map {
-  width: 100%;
-  max-width: 700px;   /* có thể tăng nếu muốn */
-  height: 300px;      /* 👈 tăng chiều cao để hết bị dẹt */
+  width: 100%;        /* full ngang */
+  max-width: 600px;   /* 👈 giới hạn giống hình */
+  height: 250px;      /* 👈 chiều cao như bạn gửi */
   margin-top: 10px;
   border-radius: 12px;
   overflow: hidden;
