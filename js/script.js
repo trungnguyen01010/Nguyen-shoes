@@ -822,31 +822,35 @@ if (btnCheckout) {
 // ============================================================
 // MODAL ĐĂNG NHẬP / ĐĂNG KÝ
 // ============================================================
-const accountBtn = document.getElementById('accountBtn');
-const authModal = document.getElementById('authModal');
-const modalClose = document.getElementById('modalClose');
+document.addEventListener('DOMContentLoaded', () => {
+  const accountBtn = document.getElementById('accountBtn');
+  const authModal = document.getElementById('authModal');
+  const modalClose = document.getElementById('modalClose');
 
-if (authModal) {
+  if (!authModal) {
+    console.error("Không tìm thấy modal đăng nhập! Kiểm tra HTML có id='authModal' không.");
+    return;
+  }
 
-  // Mở modal khi click icon Tài khoản
+  // Click icon người → mở modal
   if (accountBtn) {
     accountBtn.addEventListener('click', () => {
       authModal.style.display = 'flex';
     });
   }
 
-  // Đóng modal bằng nút X
+  // Click nút X → đóng modal
   if (modalClose) {
     modalClose.addEventListener('click', () => {
       authModal.style.display = 'none';
     });
   }
 
-  // Đóng modal khi click ra ngoài nền
+  // Click ra ngoài modal → đóng
   authModal.addEventListener('click', (e) => {
     if (e.target === authModal) {
       authModal.style.display = 'none';
     }
   });
-}
+});
 
