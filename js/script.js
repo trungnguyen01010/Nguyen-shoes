@@ -456,7 +456,7 @@ function initSearch() {
 }
 
 // ============================================================
-// MOBILE NAV - PHIÊN BẢN AN TOÀN
+// MOBILE NAV
 // ============================================================
 function initMobileNav() {
   const hamburger = document.getElementById('hamburger');
@@ -464,34 +464,30 @@ function initMobileNav() {
   const mobileClose = document.getElementById('mobileClose');
   const overlay = document.getElementById('overlay');
 
-  if (!hamburger || !mobileNav || !mobileClose) {
-    console.warn("Mobile nav elements not found!");
-    return;
-  }
+  if (!hamburger) return;
 
-  // Mở menu
   hamburger.addEventListener('click', () => {
     mobileNav.classList.add('open');
-    if (overlay) overlay.classList.add('active');
+    overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
   });
 
-  // Đóng menu
   function closeMobileNav() {
     mobileNav.classList.remove('open');
-    if (overlay) overlay.classList.remove('active');
+    if (!document.getElementById('cartDrawer').classList.contains('open')) {
+      overlay.classList.remove('active');
+    }
     document.body.style.overflow = '';
   }
 
   mobileClose.addEventListener('click', closeMobileNav);
-
-  if (overlay) {
-    overlay.addEventListener('click', () => {
-      closeMobileNav();
-      closeCart();
-    });
-  }
+  overlay.addEventListener('click', () => {
+    closeMobileNav();
+    closeCart();
+    document.body.style.overflow = '';
+  });
 }
+
 // ============================================================
 // STICKY HEADER
 // ============================================================
@@ -563,102 +559,64 @@ function initScrollAnimations() {
 // ============================================================
 // CART INIT
 // ============================================================
-// ============================================================
-// CART INIT (ĐÃ SỬA)
-// ============================================================
 function initCart() {
-  const cartToggle = document.getElementById('cartToggle');
-  const cartClose = document.getElementById('cartClose');
-  const overlay = document.getElementById('overlay');
-
-  if (cartToggle) {
-    cartToggle.addEventListener('click', openCart);
-  }
-
-  if (cartClose) {
-    cartClose.addEventListener('click', () => {
-      closeCart();
-    });
-  }
-
-  // Đóng khi click overlay
-  if (overlay) {
-    overlay.addEventListener('click', () => {
-      closeCart();
-    });
-  }
-
+  document.getElementById('cartToggle')?.addEventListener('click', openCart);
+  document.getElementById('cartClose')?.addEventListener('click', () => {
+    closeCart();
+  });
   updateCartUI();
 }
 
 // ============================================================
 // CATEGORY CARDS
 // ============================================================
-// ============================================================
-// CATEGORY CARDS - CLICK ĐỂ LỌC SẢN PHẨM
-// ============================================================
-// ============================================================
-// CATEGORY CARDS
-// ============================================================
 function initCategoryCards() {
-  const catCards = document.querySelectorAll('.cat-card');
-  
-  catCards.forEach(card => {
+  document.querySelectorAll('.cat-card').forEach(card => {
     card.addEventListener('click', () => {
       const cat = card.dataset.cat;
-      
-      const saleSection = document.getElementById('sale');
-      if (saleSection) {
-        saleSection.scrollIntoView({ behavior: 'smooth' });
-      }
-
+      document.getElementById('sale')?.scrollIntoView({ behavior: 'smooth' });
       setTimeout(() => {
         const tabs = document.querySelectorAll('.filter-tab');
         const match = [...tabs].find(t => t.dataset.filter === cat);
-        
         if (match) {
           tabs.forEach(t => t.classList.remove('active'));
           match.classList.add('active');
           renderProducts(cat);
-        } else {
-          renderProducts('all');
         }
-      }, 800);
+      }, 600);
     });
   });
 }
 
 // ============================================================
-// INIT - DOMContentLoaded
+// INIT
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
+  // Render nội dung
   renderProducts('all');
   renderArrivals();
 
   // Hero Slider
   const heroPrev = document.getElementById('heroPrev');
   const heroNext = document.getElementById('heroNext');
-  heroPrev?.addEventListener('click', () => { goToSlide(currentSlide - 1); resetSlider(); });
-  heroNext?.addEventListener('click', () => { goToSlide(currentSlide + 1); resetSlider(); });
-
-  document.querySelectorAll('.hero__dot').forEach(dot => {
-    dot.addEventListener('click', () => { goToSlide(parseInt(dot.dataset.index)); resetSlider(); });
+  
+  heroPrev?.addEventListener('click', () => { 
+    goToSlide(currentSlide - 1); 
+    resetSlider(); 
+  });
+  heroNext?.addEventListener('click', () => { 
+    goToSlide(currentSlide + 1); 
+    resetSlider(); 
   });
 
-  startSlider();
+  document.querySelectorAll('.hero__dot').forEach(dot => {
+    dot.addEventListener('click', () => { 
+      goToSlide(parseInt(dot.dataset.index)); 
+      resetSlider(); 
+    });
+  });
 
-  initFilterTabs();
-  initSearch();
-  initMobileNav();
-  initStickyHeader();
-  initNewsletter();
-  initCart();
-  initCategoryCards();
-
-  setTimeout(initScrollAnimations, 400);
-});
-
-  // Touch swipe cho Hero
+  // Touch swipe
   let touchStartX = 0;
   const heroSection = document.querySelector('.hero');
   if (heroSection) {
@@ -677,7 +635,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   startSlider();
 
-  // Khởi tạo các chức năng
+  // Khởi tạo các chức năng khác
   initFilterTabs();
   initSearch();
   initMobileNav();
@@ -687,8 +645,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initCategoryCards();
 
   // Scroll animations
-  setTimeout(initScrollAnimations, 400);
+  setTimeout(initScrollAnimations, 300);
 });
+
 /* =========================================
    MOBILE DROPDOWN NAV
    ========================================= */
@@ -744,66 +703,3 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeMenu();
   });
 }());
-// ========== MODAL THANH TOÁN ==========
-const checkoutModal = document.getElementById('checkoutModal');
-const checkoutClose = document.getElementById('checkoutClose');
-const completeOrder = document.getElementById('completeOrder');
-
-function openCheckoutModal() {
-  if (cart.length === 0) {
-    showToast("Giỏ hàng trống!");
-    return;
-  }
-  
-  // Hiển thị danh sách sản phẩm
-  let html = '';
-  let total = 0;
-  
-  cart.forEach(item => {
-    const subtotal = item.price * item.qty;
-    total += subtotal;
-    html += `
-      <div class="checkout-item">
-        <span>${item.name} × ${item.qty}</span>
-        <span>${subtotal.toLocaleString('vi-VN')}₫</span>
-      </div>`;
-  });
-  
-  document.getElementById('modalCheckoutItems').innerHTML = html;
-  document.getElementById('modalCheckoutTotal').textContent = total.toLocaleString('vi-VN') + '₫';
-  
-  checkoutModal.style.display = 'flex';
-}
-
-// Mở modal khi click nút Thanh Toán trong giỏ hàng
-document.addEventListener('click', function(e) {
-  if (e.target && e.target.id === 'btnCheckout') {
-    openCheckoutModal();
-  }
-});
-
-checkoutClose.addEventListener('click', () => {
-  checkoutModal.style.display = 'none';
-});
-
-completeOrder.addEventListener('click', () => {
-  alert('✅ Đơn hàng của bạn đã được đặt thành công!\nCảm ơn bạn đã mua sắm tại Nike Store ❤️');
-  cart = [];                    // Xóa giỏ hàng
-  saveCart();
-  updateCartUI();
-  checkoutModal.style.display = 'none';
-  closeCart();                  // Đóng giỏ hàng
-});
-// ========== LIÊN KẾT NÚT THANH TOÁN VỚI MODAL ==========
-const btnCheckout = document.getElementById('btnCheckout');
-
-if (btnCheckout) {
-  btnCheckout.addEventListener('click', () => {
-    if (cart.length === 0) {
-      showToast("Giỏ hàng của bạn đang trống!");
-      return;
-    }
-    openCheckoutModal();     // Mở modal thanh toán
-  });
-}
-
