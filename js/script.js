@@ -703,3 +703,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeMenu();
   });
 }());
+    <!-- ===== STUDENT INFO FOOTER ===== -->
+<div class="student-footer">
+  <p>Họ và tên: <strong>Phạm Nguyễn Trung Nguyên</strong> &nbsp;|&nbsp; MSSV: <strong>DH52301331</strong> &nbsp;|&nbsp; Lớp: <strong>D23_TH04</strong> &nbsp;|&nbsp; Nhóm 19 Thứ 5 Ca 4</p>
+</div>
