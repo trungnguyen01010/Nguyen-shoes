@@ -1298,8 +1298,8 @@ button { cursor: pointer; border: none; background: none; font-family: 'Poppins'
   border-radius: 8px;
 }
 .footer__map {
-  width: 400px;      /* 👈 thu nhỏ lại */
-  height: 220px;     /* 👈 giảm chiều cao */
+  width: 250px;      /* 👈 thu nhỏ lại */
+  height: 150px;     /* 👈 giảm chiều cao */
   margin: 10px auto; /* 👈 căn giữa */
   border-radius: 12px;
   overflow: hidden;
