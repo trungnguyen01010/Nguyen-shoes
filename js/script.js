@@ -456,7 +456,7 @@ function initSearch() {
 }
 
 // ============================================================
-// MOBILE NAV
+// MOBILE NAV - PHIÊN BẢN SIÊU AN TOÀN
 // ============================================================
 function initMobileNav() {
   const hamburger = document.getElementById('hamburger');
@@ -464,28 +464,36 @@ function initMobileNav() {
   const mobileClose = document.getElementById('mobileClose');
   const overlay = document.getElementById('overlay');
 
-  if (!hamburger) return;
+  // Nếu thiếu bất kỳ element nào thì dừng lại và báo lỗi
+  if (!hamburger || !mobileNav || !mobileClose) {
+    console.warn("Mobile Nav: Thiếu element. Kiểm tra ID trong HTML");
+    return;
+  }
 
+  // Mở menu
   hamburger.addEventListener('click', () => {
     mobileNav.classList.add('open');
-    overlay.classList.add('active');
+    if (overlay) overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
   });
 
+  // Hàm đóng menu
   function closeMobileNav() {
     mobileNav.classList.remove('open');
-    if (!document.getElementById('cartDrawer').classList.contains('open')) {
-      overlay.classList.remove('active');
-    }
+    if (overlay) overlay.classList.remove('active');
     document.body.style.overflow = '';
   }
 
+  // Click nút X
   mobileClose.addEventListener('click', closeMobileNav);
-  overlay.addEventListener('click', () => {
-    closeMobileNav();
-    closeCart();
-    document.body.style.overflow = '';
-  });
+
+  // Click overlay
+  if (overlay) {
+    overlay.addEventListener('click', () => {
+      closeMobileNav();
+      closeCart();
+    });
+  }
 }
 
 // ============================================================
